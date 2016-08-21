@@ -20,6 +20,7 @@ while not is_valid:
                 print ("'%s' is not a number!." % e.args[0].split(": ")[1])
 
 for draw in range(0, draw_count) :
+	print
 	print "Draw number - %d" % (draw+1)
 	print "--------------------"
 	for x in range(0,6):
