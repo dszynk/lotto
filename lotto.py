@@ -10,50 +10,56 @@ import os
 
 os.system('clear')
 
-def menu():
-	return;
+def drawsQuantity():
+	is_valid = 0
+	while not is_valid:
+		try:
+			draw_qty = int(raw_input('\v\v\tHow many draws? '))
+			if draw_qty == 0:
+				is_valid = 0
+				print("Try again!")
+			else:
+				is_valid = 1
+		except e:
+			print ("'%s' is not a number!." % e.args[0].split(": ")[1])
+	return draw_qty
 
+def numberQuantity():
+	is_valid = 0
+	while not is_valid:
+		try:
+			numbers_qty = int(raw_input('\v\v\tHow many numbers to draw from? '))
+			if numbers_qty == 0:
+				is_valid = 0
+				print("Try again!")
+			else:
+				is_valid = 1
+		except e:
+			print ("'%s' is not a number!." % e.args[0].split(": ")[1])
+	return numbers_qty
 
-is_valid = 0
-while not is_valid:
-	try:
-		number_count = int(raw_input('\v\v\tHow many numbers for draw: '))
-		if number_count == 0:
-			is_valid = 0
-			print("Try again")
-		else:
-			is_valid = 1
-	except e :
-                print ("'%s' is not a number!." % e.args[0].split(": ")[1])
+def drawNumbersQuantity():
+	is_valid = 0
+	while not is_valid:
+		try:
+			draw_numbers_qty = int(raw_input('\v\v\tHow many numbers to draw? '))
+			if draw_numbers_qty == 0:
+				is_valid = 0
+				print("Try again!")
+			else:
+				is_valid = 1
+		except e:
+			print ("'%s' is not a number!." % e.args[0].split(": ")[1])
+	return draw_numbers_qty
 
-is_valid = 0
-while not is_valid:
-	try:
-		draw_count = int(raw_input('\v\tEnter the number of draws: '))
-		if draw_count == 0 :
-			is_valid = 0
-			print("Try again!")
-		else:
-			is_valid = 1
-	except e :
-                print ("'%s' is not a number!." % e.args[0].split(": ")[1])
+newDrawsQty = drawsQuantity()
+newDrawNumbersQty = drawNumbersQuantity()
+newNumberQty = numberQuantity()
 
-is_valid = 0
-while not is_valid:
-	try:
-		number_qty = int(raw_input('\v\tHow many numbers to draw: '))
-		if number_qty == 0 :
-			is_valid = 0
-			print("Try again!")
-		else:
-			is_valid = 1
-	except e :
-                print ("'%s' is not a number!." % e.args[0].split(": ")[1])
-
-for draw in range(0, draw_count) :
+for draw in range(0, newDrawsQty) :
 	print("")
 	print("Draw number - %d" % (draw+1))
 	print("--------------------")
-	for x in range(0,number_qty):
-		lotto_no = random.randrange(1,number_count,2)
+	for x in range(0,newDrawNumbersQty):
+		lotto_no = random.randrange(1,newNumberQty,2)
     		print("Number %d = %d" %(x+1,lotto_no))
